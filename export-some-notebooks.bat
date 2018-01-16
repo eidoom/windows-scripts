@@ -3,26 +3,26 @@
 cd C:\Programs\OneNote2PDF_0.3
 
 set temp="C:\Programs\OneNote2PDF_0.3\temp"
-set courses=C:\sync\physics\6_Part_iii\Courses
+set directory=C:\sync\physics\6_Part_iii\Courses
 
-set /p list="Which subjects? (acronyms, case insensitive) "
-set /p parts1="Which parts? (0=all, 1=lectures, 2=second, 3=examples) "
+set /p course="Which subjects? [acronyms, case insensitive] "
+set /p partsin="Which parts? [0=all, 1=lectures, 2=second, 3=examples] "
 
-IF "%parts1%"=="0" (
-set parts2="%%i_lectures" "%%i_examples" "%%i_second"
+IF "%partsin%"=="0" (
+set partsout="%%i_lectures" "%%i_examples" "%%i_second"
 )
-IF "%parts1%"=="1" (
-set parts2="%%i_lectures"
+IF "%partsin%"=="1" (
+set partsout="%%i_lectures"
 )
-IF "%parts1%"=="2" (
-set parts2="%%i_second"
+IF "%partsin%"=="2" (
+set partsout="%%i_second"
 )
-IF "%parts1%"=="3" (
-set parts2="%%i_examples"
+IF "%partsin%"=="3" (
+set partsout="%%i_examples"
 )
 
-FOR %%i in (%list%) do (
-FOR %%m in (%parts2%) do (
-OneNote2PDF -Notebook "%%~m" -CacheFolder %temp% -Output "%courses%\%%i\Exports" -ExportNotebook true -Exclude OneNote_RecycleBin
+FOR %%i in (%course%) do (
+FOR %%m in (%partsout%) do (
+OneNote2PDF -Notebook "%%~m" -CacheFolder %temp% -Output "%directory%\%%i\Exports" -ExportNotebook true -Exclude OneNote_RecycleBin
 )
 )
