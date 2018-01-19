@@ -5,24 +5,44 @@ cd C:\Programs\OneNote2PDF_0.3
 set temp="C:\Programs\OneNote2PDF_0.3\temp"
 set directory=C:\sync\physics\6_Part_iii\Courses
 
-set /p course="Which subjects? [acronyms, case insensitive] "
-set /p partsin="Which parts? [0=all, 1=lectures, 2=second, 3=examples] "
+set /p courses="Which subjects? [acronyms, case insensitive] "
+set /p groupsin="Which groups? [0=all, 1=lectures, 2=examples] "
+set /p sectionsin="Which sections? [0=all, c=class, 1=first, 2=second, etc]"
 
-IF "%partsin%"=="0" (
-set partsout="%%i_lectures" "%%i_examples" "%%i_second"
+IF "%groupsin%"=="0" (
+    set groupsout=Lectures Examples
 )
-IF "%partsin%"=="1" (
-set partsout="%%i_lectures"
+IF "%groupsin%"=="1" (
+    set groupsout=Lectures
 )
-IF "%partsin%"=="2" (
-set partsout="%%i_second"
-)
-IF "%partsin%"=="3" (
-set partsout="%%i_examples"
+IF "%groupsin%"=="2" (
+    set groupsout=Examples
 )
 
-FOR %%i in (%course%) do (
-FOR %%m in (%partsout%) do (
-OneNote2PDF -Notebook "%%~m" -CacheFolder %temp% -Output "%directory%\%%i\Exports" -ExportNotebook true -Exclude OneNote_RecycleBin
+IF "%sectionsin%"=="0" (
+    set sectionsout=First Second
+    set class=1
 )
+IF "%sectionsin%"=="1" (
+    set sectionsout=First
+    set class=0
+)
+IF "%sectionsin%"=="2" (
+    set sectionsout=econd
+    set class=0
+)
+IF "%sectionsin%"=="c" (
+    set sectionsout=
+    set class=1
+)
+
+FOR %%i in (%courses%) do (
+    FOR %%m in (%groupsout%) do (
+        FOR %%n in (%sectionsout%) do (
+            OneNote2PDF -Notebook "%%i" -CacheFolder %temp% -Output "%directory%\%%i\%%m" -Exclude OneNote_RecycleBin -ExportSection "%%m/%%n"
+        )
+    )
+    IF %class%==1 (
+        OneNote2PDF -Notebook "%%i" -CacheFolder %temp% -Output "%directory%\%%i\Examples" -Exclude OneNote_RecycleBin -ExportSection "Examples/Class"
+    )
 )
