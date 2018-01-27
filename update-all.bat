@@ -1,3 +1,5 @@
+@ECHO off
+
 cd C:\Users\ryan\scripts
 start update-anaconda.bat
 start update-chocolatey.bat
