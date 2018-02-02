@@ -28,7 +28,7 @@ IF "%sectionsin%"=="1" (
     set class=0
 )
 IF "%sectionsin%"=="2" (
-    set sectionsout=econd
+    set sectionsout=Second
     set class=0
 )
 IF "%sectionsin%"=="c" (
