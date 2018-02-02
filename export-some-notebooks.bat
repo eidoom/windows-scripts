@@ -20,15 +20,15 @@ IF "%groupsin%"=="2" (
 )
 
 IF "%sectionsin%"=="0" (
-    set sectionsout=First Second
+    set sectionsout=1 2
     set class=1
 )
 IF "%sectionsin%"=="1" (
-    set sectionsout=First
+    set sectionsout=1
     set class=0
 )
 IF "%sectionsin%"=="2" (
-    set sectionsout=Second
+    set sectionsout=2
     set class=0
 )
 IF "%sectionsin%"=="c" (
@@ -39,10 +39,10 @@ IF "%sectionsin%"=="c" (
 FOR %%i in (%courses%) do (
     FOR %%m in (%groupsout%) do (
         FOR %%n in (%sectionsout%) do (
-            OneNote2PDF -Notebook "%%i" -CacheFolder %temp% -Output "%directory%\%%i\%%m" -Exclude OneNote_RecycleBin -ExportSection "%%m/%%n"
+            OneNote2PDF -Notebook "%%i" -CacheFolder %temp% -Output "%directory%\%%i\Exports" -Exclude OneNote_RecycleBin -ExportSection "%%m_%%n"
         )
     )
     IF %class%==1 (
-        OneNote2PDF -Notebook "%%i" -CacheFolder %temp% -Output "%directory%\%%i\Examples" -Exclude OneNote_RecycleBin -ExportSection "Examples/Class"
+        OneNote2PDF -Notebook "%%i" -CacheFolder %temp% -Output "%directory%\%%i\Exports" -Exclude OneNote_RecycleBin -ExportSection "Examples_class"
     )
 )
