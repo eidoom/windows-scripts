@@ -2,6 +2,7 @@
 
 SET PATH=C:\Users\ryan\Anaconda3
 
-cd C:\sync\projects\scrape-aqft-notes
+cd C:\sync\projects\scrape-cam-notes
 
-python download.py
+python dl-sm.py
+python dl-aqft.py
