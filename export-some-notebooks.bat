@@ -7,7 +7,7 @@ set directory=C:\sync\physics\6_Part_iii\Courses
 
 set /p courses="Which subjects? [acronyms, case insensitive] "
 set /p groupsin="Which groups? [0=all, 1=lectures, 2=examples] "
-set /p sectionsin="Which sections? [0=all, c=class, 1=first, 2=second, etc]"
+set /p sectionsin="Which sections? [0=all, c=class, 1=first, 2=second, etc] "
 
 IF "%groupsin%"=="0" (
     set groupsout=Lectures Examples
