@@ -39,10 +39,10 @@ IF "%sectionsin%"=="c" (
 FOR %%i in (%courses%) do (
     FOR %%m in (%groupsout%) do (
         FOR %%n in (%sectionsout%) do (
-            OneNote2PDF -Notebook "%%i" -CacheFolder %temp% -Output "%directory%\%%i\Exports" -Exclude OneNote_RecycleBin -ExportSection "%%m_%%n"
+            OneNote2PDF -Notebook "%%i" -CacheFolder %temp% -Output "%directory%\%%i\Exports" -Exclude OneNote_RecycleBin -ExportSection "%%i_%%m_%%n"
         )
     )
     IF %class%==1 (
-        OneNote2PDF -Notebook "%%i" -CacheFolder %temp% -Output "%directory%\%%i\Exports" -Exclude OneNote_RecycleBin -ExportSection "Examples_class"
+        OneNote2PDF -Notebook "%%i" -CacheFolder %temp% -Output "%directory%\%%i\Exports" -Exclude OneNote_RecycleBin -ExportSection "%%i_Examples_class"
     )
 )
