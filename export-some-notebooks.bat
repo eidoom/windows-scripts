@@ -1,48 +1,92 @@
 @echo OFF
 
+echo # Notebook exporter [case insensitive input]
+echo.
+
 cd C:\Programs\OneNote2PDF_0.3
 
-set temp="C:\Programs\OneNote2PDF_0.3\temp"
+set temp=C:\Programs\OneNote2PDF_0.3\temp
 set directory=C:\sync\physics\6_Part_iii\Courses
 
-set /p courses="Which subjects? [acronyms, case insensitive] "
-set /p groupsin="Which groups? [a=all, l=lectures, e=examples] "
-set /p sectionsin="Which sections? [a=all, c=class, 1=first, 2=second, etc] "
+set /p coursesin="Which subjects? [acronyms; blank=all] "
 
-IF "%groupsin%"=="a" (
+if "%coursesin%"=="" (
+    set coursesout=C GR QFT SFT SFP AQFT BH SM ST SUSY CQS
+) else (
+    set coursesout=%coursesin%
+)
+
+echo ## Courses: %coursesout%
+echo.
+
+set /p groupsin="Which groups? [blank=all, l=lectures, e=examples] "
+
+if "%groupsin%"=="" (
     set groupsout=Lectures Examples
-)
-IF "%groupsin%"=="l" (
+) else if "%groupsin%"=="l" (
     set groupsout=Lectures
-)
-IF "%groupsin%"=="e" (
+) else if "%groupsin%"=="L" (
+    set groupsout=Lectures
+) else if "%groupsin%"=="e" (
     set groupsout=Examples
+) else if "%groupsin%"=="E" (
+    set groupsout=Examples
+) else (
+    echo No readable input!
+    timeout 5
+    exit /b
 )
 
-IF "%sectionsin%"=="a" (
+echo ## Groups: %groupsout%
+echo.
+
+set /p sectionsin="Which sections? [blank=all, c=class, 1=first, 2=second] "
+
+if "%sectionsin%"=="" (
     set sectionsout=1 2
     set class=1
-)
-IF "%sectionsin%"=="1" (
+) else if "%sectionsin%"=="1" (
     set sectionsout=1
     set class=0
-)
-IF "%sectionsin%"=="2" (
+) else if "%sectionsin%"=="2" (
     set sectionsout=2
     set class=0
-)
-IF "%sectionsin%"=="c" (
+) else if "%sectionsin%"=="c" (
     set sectionsout=
     set class=1
+) else if "%sectionsin%"=="C" (
+    set sectionsout=
+    set class=1    
+) else (
+    echo No readable input!
+    timeout 5
+    exit /b
+)
+if class==1 (
+    classbool=yes
+) else if class==0 (
+    classbool=no
 )
 
-FOR %%i in (%courses%) do (
-    FOR %%m in (%groupsout%) do (
-        FOR %%n in (%sectionsout%) do (
-            OneNote2PDF -Notebook "%%i" -CacheFolder %temp% -Output "%directory%\%%i\Exports" -Exclude OneNote_RecycleBin -ExportSection "%%i_%%m_%%n"
+echo ## Sections: %sectionsout%
+echo ## Examples class: %classbool%
+echo.
+
+for %%i in (%coursesout%) do (
+    for %%m in (%groupsout%) do (
+        for %%n in (%sectionsout%) do (
+            echo ## %%i %%m %%n
+            OneNote2PDF -Notebook "%%i" -CacheFolder "%temp%" -Output "%directory%\%%i\Exports" -Exclude OneNote_RecycleBin -ExportSection "%%i_%%m_%%n"
+            echo.
         )
     )
-    IF %class%==1 (
-        OneNote2PDF -Notebook "%%i" -CacheFolder %temp% -Output "%directory%\%%i\Exports" -Exclude OneNote_RecycleBin -ExportSection "%%i_Examples_class"
+    if not "%groupsout%"=="Lectures" (
+        if %class%==1 (
+            echo ## %%i Examples class
+            OneNote2PDF -Notebook "%%i" -CacheFolder "%temp%" -Output "%directory%\%%i\Exports" -Exclude OneNote_RecycleBin -ExportSection "%%i_Examples_class"
+            echo.
+        )
     )
 )
+
+timeout 5
