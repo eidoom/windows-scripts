@@ -6,20 +6,20 @@ set temp="C:\Programs\OneNote2PDF_0.3\temp"
 set directory=C:\sync\physics\6_Part_iii\Courses
 
 set /p courses="Which subjects? [acronyms, case insensitive] "
-set /p groupsin="Which groups? [0=all, 1=lectures, 2=examples] "
-set /p sectionsin="Which sections? [0=all, c=class, 1=first, 2=second, etc] "
+set /p groupsin="Which groups? [a=all, l=lectures, e=examples] "
+set /p sectionsin="Which sections? [a=all, c=class, 1=first, 2=second, etc] "
 
-IF "%groupsin%"=="0" (
+IF "%groupsin%"=="a" (
     set groupsout=Lectures Examples
 )
-IF "%groupsin%"=="1" (
+IF "%groupsin%"=="l" (
     set groupsout=Lectures
 )
-IF "%groupsin%"=="2" (
+IF "%groupsin%"=="e" (
     set groupsout=Examples
 )
 
-IF "%sectionsin%"=="0" (
+IF "%sectionsin%"=="a" (
     set sectionsout=1 2
     set class=1
 )
