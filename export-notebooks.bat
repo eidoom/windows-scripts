@@ -180,7 +180,6 @@ if "%sectionsin%"=="" (
 )
 
 if %class%==1 (
-    echo hi
     set classbool=yes
 ) else if %class%==0 (
     set classbool=no
