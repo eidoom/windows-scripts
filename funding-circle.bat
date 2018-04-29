@@ -1,6 +1,6 @@
 @ECHO off
 
-SET PATH=C:\Users\ryan\Anaconda3
+set PATH=C:\Users\ryan\Anaconda3
 
 cd C:\git\projects\funding-circle-tools
 
