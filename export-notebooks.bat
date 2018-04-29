@@ -63,3 +63,5 @@ for %%i in (%coursesout%) do (
             echo.
     )
 )
+
+exit
