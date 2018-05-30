@@ -6,7 +6,7 @@ cd C:\Users\ryan\scripts
 set /p file="Which file? [do not use file suffixes] "
 
 if exist %file%.lnk (
-    set /p replace="Link already exists! Do you want to replace it? [y=yes, else=no] "
+    set /p replace="That link already exists! Do you want to replace it? [y=yes, else=no] "
 ) else (
     set replace=y
 )
