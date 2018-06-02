@@ -35,7 +35,7 @@ if %2.==. (
 )
 
 if "%sectionsin%"=="" (
-    set sectionsout=Lectures_1 Lecture_2 Examples_1 Examples_2 Examples_class Past_papers
+    set sectionsout=Lectures_1 Lectures_2 Examples_1 Examples_2 Examples_class Past_papers
 ) else if "%sectionsin%"=="l" (
     set sectionsout=Lectures_1
 ) else if "%sectionsin%"=="s" (
