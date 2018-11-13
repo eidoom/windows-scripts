@@ -11,8 +11,9 @@ C:\Programs\OneNote2PDF_0.3\OneNote2PDF.exe -ListAllNotebook true
 echo.
 
 set notesbooksReading=calculating-scattering-amplitudes-efficiently
-set notebooksTeaching=foundations-of-physics-3a-2018
-set notebooksLectures=ampl astro cft cmp cos flav gr grp higgs ift npp nu qcd qed qft rg sm strings susy
+set notebooksTeaching=foundations-of-physics-3a-2018-npp
+set notebooksLectures=
+rem ampl astro cft cmp cos flav gr grp higgs ift npp nu qcd qed qft rg sm strings susy
 
 for %%i in (%notesbooksReading%) do (
     echo # Exporting notebook %%i to path %directory%\Teaching\%%i
@@ -21,8 +22,8 @@ for %%i in (%notesbooksReading%) do (
 )
 
 for %%i in (%notebooksTeaching%) do (
-    echo # Exporting notebook %%i to path %directory%\Teaching\%%i
-    C:\Programs\OneNote2PDF_0.3\OneNote2PDF.exe -Notebook "%%i" -CacheFolder "%temp%" -Output "%directory%\Teaching\%%i" -Exclude OneNote_RecycleBin -ExportNotebook true -ShowTOC true
+    echo # Exporting notebook %%i to path %directory%\Teaching\foundations-of-physics-3a-2018\npp
+    C:\Programs\OneNote2PDF_0.3\OneNote2PDF.exe -Notebook "%%i" -CacheFolder "%temp%" -Output "%directory%\Teaching\foundations-of-physics-3a-2018\npp" -Exclude OneNote_RecycleBin -ExportNotebook true -ShowTOC true
     echo.
 )
 
