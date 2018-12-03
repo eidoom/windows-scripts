@@ -10,7 +10,7 @@ echo # All notebooks:
 C:\Programs\OneNote2PDF_0.3\OneNote2PDF.exe -ListAllNotebook true
 echo.
 
-set notesbooksReading=calculating-scattering-amplitudes-efficiently
+set notesbooksReading=calculating-scattering-amplitudes-efficiently colour-bases
 set notebooksTeaching=foundations-of-physics-3a-2018-npp
 set notebooksLectures=
 rem ampl astro cft cmp cos flav gr grp higgs ift npp nu qcd qed qft rg sm strings susy
