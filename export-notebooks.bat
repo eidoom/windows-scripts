@@ -10,9 +10,28 @@ echo # All notebooks:
 C:\Programs\OneNote2PDF_0.3\OneNote2PDF.exe -ListAllNotebook true
 echo.
 
-set notesbooksReading=colour-bases
-set notebooksTeaching=foundations-of-physics-3a-2018-npp
-set notebooksLectures=
+if %1.==. (
+    echo Tell me what you want to do!
+    exit
+)
+
+if %1==Reading (
+    set notesbooksReading=colour-bases
+) else (
+    set notesbooksReading=
+)
+
+if %1==Teaching (
+    set notebooksTeaching=foundations-of-physics-3a-2018-npp
+) else (
+    set notebooksTeaching=
+)
+
+if %1==Lectures (
+    set notebooksLectures=
+) else (
+    set notebooksLectures=
+)
 rem ampl astro cft cmp cos flav gr grp higgs ift npp nu qcd qed qft rg sm strings susy
 
 for %%i in (%notesbooksReading%) do (
