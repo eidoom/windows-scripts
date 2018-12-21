@@ -4,7 +4,7 @@ echo # Notebook exporter
 echo.
 
 set temp=C:\Programs\OneNote2PDF_0.3\temp
-set directory=C:\Users\ryan\gdrive\PhD
+set directory=C:\Users\ryan\gdrive-durham\PhD
 
 echo # All notebooks:
 C:\Programs\OneNote2PDF_0.3\OneNote2PDF.exe -ListAllNotebook true
@@ -16,7 +16,7 @@ if %1.==. (
 )
 
 if %1==Reading (
-    set notesbooksReading=colour-bases
+    set notesbooksReading=colour-bases calculating-scattering-amplitudes-efficiently
 ) else (
     set notesbooksReading=
 )
