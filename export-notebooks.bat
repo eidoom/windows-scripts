@@ -36,7 +36,7 @@ if %1==Lectures (
 rem ampl astro cft cmp cos flav gr grp higgs ift npp nu qcd qed qft rg sm strings susy
 
 for %%i in (%notesbooksReading%) do (
-    echo # Exporting notebook %%i to path %directory%\Teaching\%%i
+    echo # Exporting notebook %%i to path %directory%\Reading\%%i
     C:\Programs\OneNote2PDF_0.3\OneNote2PDF.exe -Notebook "%%i" -CacheFolder "%temp%" -Output "%directory%\Reading\%%i" -Exclude OneNote_RecycleBin -ExportNotebook true -ShowTOC true
     echo.
 )
@@ -48,9 +48,7 @@ for %%i in (%notebooksTeaching%) do (
 )
 
 for %%i in (%notebooksLectures%) do (
-    echo # Exporting notebook %%i to path %directory%\Teaching\%%i
+    echo # Exporting notebook %%i to path %directory%\Lectures\%%i
     C:\Programs\OneNote2PDF_0.3\OneNote2PDF.exe -Notebook "%%i" -CacheFolder "%temp%" -Output "%directory%\Lectures\%%i" -Exclude OneNote_RecycleBin -ExportNotebook true -ShowTOC true
     echo.
 )
-
-exit
