@@ -14,7 +14,7 @@ if %1.==. (
     echo Tell me what you want to do!
     exit
 )
-qcd-in-electron-positron-annihilation
+
 if %1==Reading (
     set notesbooksReading=qcd-in-electron-positron-annihilation
     rem colour-bases calculating-scattering-amplitudes-efficiently
