@@ -1,1 +1,1 @@
-conda update -y --all
+conda update -y anaconda

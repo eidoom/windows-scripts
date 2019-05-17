@@ -16,7 +16,7 @@ if %1.==. (
 )
 
 if %1==Reading (
-    set notesbooksReading=qcd-in-electron-positron-annihilation
+    set notesbooksReading=qcd-in-electron-positron-annihilation calculating-scattering-amplitudes-efficiently
     rem colour-bases calculating-scattering-amplitudes-efficiently
 ) else (
     set notesbooksReading=
