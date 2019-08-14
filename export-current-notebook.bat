@@ -18,7 +18,7 @@ set notesbooksCurrent2=BUSSTEPP
 set directory2=C:\Users\ryan\gdrive-durham\PhD\Conferences\BUSSTEPP-2019
 
 for %%i in (%notesbooksCurrent2%) do (
-    echo # Exporting notebook %%i to path %directory%
+    echo # Exporting notebook %%i to path %directory2%
     C:\Programs\OneNote2PDF_0.3\OneNote2PDF.exe -Notebook "%%i" -CacheFolder "%temp%" -Output "%directory2%" -Exclude OneNote_RecycleBin -ExportNotebook true -ShowTOC true
     echo.
 )
