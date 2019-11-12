@@ -23,7 +23,7 @@ if %1==Reading (
 )
 
 if %1==Teaching (
-    set notebooksTeaching=foundations-of-physics-3a-2019
+    set notebooksTeaching=foundations-of-physics-3a-qm3-2019 foundations-of-physics-3a-npp-2019
 ) else (
     set notebooksTeaching=
 )
@@ -43,7 +43,7 @@ for %%i in (%notesbooksReading%) do (
 
 for %%i in (%notebooksTeaching%) do (
     echo # Exporting notebook %%i to path %directory%\Teaching\foundations-of-physics-3a-2018\npp
-    C:\Programs\OneNote2PDF_0.3\OneNote2PDF.exe -Notebook "%%i" -CacheFolder "%temp%" -Output "%directory%\Teaching\%%i" -Exclude OneNote_RecycleBin -ExportNotebook true -ShowTOC true
+    C:\Programs\OneNote2PDF_0.3\OneNote2PDF.exe -Notebook "%%i" -CacheFolder "%temp%" -Output "%directory%\Teaching\foundations-of-physics-3a-2019" -Exclude OneNote_RecycleBin -ExportNotebook true -ShowTOC true
     echo.
 )
 
